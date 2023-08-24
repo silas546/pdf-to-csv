@@ -16,4 +16,9 @@ for index, row in df.iterrows():
     # per line 4, coordinates calculated in millimeters
     pdf.line(10, 21, 200, 21)
 
+    # calculate the number of additional pages to add
+    additional_pages = row["Pages"] - 1
+    for i in range(additional_pages):
+        pdf.add_page()
+
 pdf.output("output.pdf")
